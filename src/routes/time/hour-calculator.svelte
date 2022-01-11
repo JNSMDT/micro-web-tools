@@ -1,43 +1,28 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { calculateTime } from '$lib/functions/time';
+	import TimeInput from '$components/inputs/TimeInput.svelte';
 	let startTime: string = '00:00';
 	let endTime: string = '00:00';
 
-	let differnce: number;
+	let difference: string;
 
 	const calcHour = () => calculateTime(startTime, endTime);
 
-	async function handleChange() {
-		await setTimeout(() => {
-			differnce = calcHour();
+	async function handleInput() {
+		setTimeout(() => {
+			difference = calcHour();
 		});
 	}
 
 	onMount(() => {
-		differnce = calcHour();
+		difference = calcHour();
 	});
 </script>
 
 <div id="time-calculator" class="time-calcullator">
-	<label class="font-bold" for="startTime">Startzeit:</label>
-	<input
-		on:input={handleChange}
-		bind:value={startTime}
-		type="text"
-		id="startTime"
-		name="startTime"
-		required
-	/>
-	<label for="endTime">Endzeit:</label>
-	<input
-		on:input={handleChange}
-		bind:value={endTime}
-		type="text"
-		id="endTime"
-		name="endTime"
-		required
-	/>
+	<TimeInput {handleInput} name="startTime" label="Anfagnszeit" bind:value={startTime} />
+	<TimeInput {handleInput} name="endTime" label="Endzeit" bind:value={endTime} />
 </div>
 
-<h1>Difference between {startTime} and {endTime}: {differnce}</h1>
+<h1>Difference between {startTime} and {endTime}: {difference}</h1>
