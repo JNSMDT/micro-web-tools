@@ -2,8 +2,9 @@
 	import { onMount } from 'svelte';
 	import { calculateTime } from '$lib/functions/time';
 	import TimeInput from '$components/inputs/TimeInput.svelte';
-	let startTime: string = '00:00';
-	let endTime: string = '00:00';
+
+	let startTime = '00:00';
+	let endTime = '00:00';
 
 	let difference: string;
 

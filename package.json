@@ -1,8 +1,9 @@
 {
 	"name": "micro-tools",
+	"type": "module",
 	"version": "0.0.1",
-	"repository": "git@github.com:angertitan/micro-tools",
 	"author": "Jan Schmidt <me@jnschmdt.de>",
+	"repository": "git@github.com:angertitan/micro-tools",
 	"scripts": {
 		"dev": "svelte-kit dev",
 		"build": "svelte-kit build",
@@ -11,32 +12,31 @@
 		"check": "svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch"
 	},
-	"devDependencies": {
-		"@ota-meshi/eslint-plugin-svelte": "^0.29.0",
-		"@sveltejs/adapter-cloudflare": "^1.0.0-next.2",
-		"@sveltejs/kit": "next",
-		"@types/cookie": "^0.4.1",
-		"@typescript-eslint/eslint-plugin": "^5.16.0",
-		"@typescript-eslint/parser": "^5.16.0",
-		"autoprefixer": "^10.4.4",
-		"eslint": "^8.11.0",
-		"eslint-config-airbnb-base": "^15.0.0",
-		"eslint-import-resolver-typescript": "^2.5.0",
-		"eslint-plugin-import": "^2.25.4",
-		"eslint-plugin-jsonc": "^2.2.1",
-		"eslint-plugin-unicorn": "^41.0.1",
-		"jsonc-eslint-parser": "^2.1.0",
-		"postcss": "^8.4.12",
-		"rollup-plugin-analyzer": "^4.0.0",
-		"svelte": "^3.46.4",
-		"svelte-check": "^2.4.6",
-		"svelte-preprocess": "^4.10.4",
-		"tailwindcss": "^3.0.23",
-		"tslib": "^2.3.1",
-		"typescript": "^4.6.2"
-	},
-	"type": "module",
 	"dependencies": {
 		"date-fns": "^2.28.0"
+	},
+	"devDependencies": {
+		"@ota-meshi/eslint-plugin-svelte": "^0.34.0",
+		"@sveltejs/adapter-cloudflare": "1.0.0-next.19",
+		"@sveltejs/kit": "next",
+		"@types/cookie": "^0.5.1",
+		"@typescript-eslint/eslint-plugin": "^5.24.0",
+		"@typescript-eslint/parser": "^5.24.0",
+		"autoprefixer": "^10.4.7",
+		"eslint": "^8.15.0",
+		"eslint-config-airbnb-base": "^15.0.0",
+		"eslint-import-resolver-typescript": "^2.7.1",
+		"eslint-plugin-import": "^2.26.0",
+		"eslint-plugin-jsonc": "^2.2.1",
+		"eslint-plugin-unicorn": "^42.0.0",
+		"jsonc-eslint-parser": "^2.1.0",
+		"postcss": "^8.4.13",
+		"rollup-plugin-analyzer": "^4.0.0",
+		"svelte": "^3.48.0",
+		"svelte-check": "^2.7.1",
+		"svelte-preprocess": "^4.10.6",
+		"tailwindcss": "^3.0.24",
+		"tslib": "^2.4.0",
+		"typescript": "^4.6.4"
 	}
 }

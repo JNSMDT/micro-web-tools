@@ -3,8 +3,9 @@ import { differenceInMinutes } from 'date-fns';
 export function calculateTime(startTime = '00:00', endTime = '00:00'): string {
 	console.log(startTime);
 	console.log(endTime);
-	const startTimeValues = startTime.split(':').map((v) => Number(v));
-	const endTimeValues = endTime.split(':').map((v) => Number(v));
+	const startTimeValues = startTime.split(':').map(Number);
+	const endTimeValues = endTime.split(':').map(Number);
+
 	console.log(startTimeValues);
 	console.log(endTimeValues);
 	const startDate = new Date(
@@ -24,3 +25,5 @@ export function calculateTime(startTime = '00:00', endTime = '00:00'): string {
 
 	return (difference / 60).toFixed(2);
 }
+
+export default { calculateTime };

@@ -1,0 +1,285 @@
+{
+  "extends": [
+    "airbnb-base",
+    "plugin:unicorn/recommended",
+    "plugin:import/recommended",
+    "plugin:jsonc/recommended-with-jsonc",
+    "plugin:import/typescript",
+    "plugin:@ota-meshi/svelte/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "unicorn",
+    "import"
+  ],
+  "settings": {
+    "import/extensions": [
+      ".js",
+      ".jsx",
+      ".js",
+      ".jsx",
+      ".ts",
+      ".tsx"
+    ],
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
+    },
+    "import/resolver": {
+      "typescript": {
+        "project": "./tsconfig.json"
+      },
+      "node": {
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
+  },
+  "ignorePatterns": [
+    "**/node_modules/*",
+    "**/dist/*"
+  ],
+  "rules": {
+    "max-len": "off",
+    "no-tabs": "off",
+    "indent": "off",
+    "comma-dangle": "off",
+    "padding-line-between-statements": [
+      "error",
+      {
+        "blankLine": "always",
+        "prev": [
+          "const",
+          "let",
+          "var"
+        ],
+        "next": "*"
+      },
+      {
+        "blankLine": "any",
+        "prev": [
+          "const",
+          "let",
+          "var"
+        ],
+        "next": [
+          "const",
+          "let",
+          "var"
+        ]
+      }
+    ],
+    "no-restricted-syntax": [
+      "error",
+      {
+        "selector": "ForInStatement",
+        "message": "for..in loops iterate over the entire prototype chain, which is virtually never what you want. Use Object.{keys,values,entries }, and iterate over the resulting array."
+      },
+      {
+        "selector": "LabeledStatement",
+        "message": "Labels are a form of GOTO; using them makes code confusing and hard to maintain and understand."
+      },
+      {
+        "selector": "WithStatement",
+        "message": "`with` is disallowed in strict mode because it makes code impossible to predict and optimize."
+      }
+    ],
+    "import/no-unresolved": "off",
+    "import/order": "error",
+    "import/first": "error",
+    "import/named": "off",
+    "import/no-mutable-exports": "error",
+    "import/no-absolute-path": "off",
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never",
+        "js": "never",
+        "jsx": "never",
+        "mjs": "never"
+      }
+    ],
+    "unicorn/error-message": "error",
+    "unicorn/escape-case": "error",
+    "unicorn/no-instanceof-array": "error",
+    "unicorn/no-new-buffer": "error",
+    "unicorn/no-unsafe-regex": "off",
+    "unicorn/number-literal-case": "error",
+    "unicorn/prefer-includes": "error",
+    "unicorn/prefer-string-starts-ends-with": "error",
+    "unicorn/prefer-dom-node-text-content": "error",
+    "unicorn/prefer-type-error": "error",
+    "unicorn/throw-new-error": "error",
+    "unicorn/numeric-separators-style": [
+      "error",
+      {
+        "onlyIfContainsSeparator": false,
+        "hexadecimal": {
+          "minimumDigits": 0,
+          "groupLength": 2
+        },
+        "binary": {
+          "minimumDigits": 0,
+          "groupLength": 4
+        },
+        "octal": {
+          "minimumDigits": 0,
+          "groupLength": 4
+        },
+        "number": {
+          "minimumDigits": 7,
+          "groupLength": 3
+        }
+      }
+    ],
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": {
+          "camelCase": true,
+          "pascalCase": true
+        }
+      }
+    ],
+    "@typescript-eslint/indent": [
+      "error",
+      "tab",
+      {
+        "SwitchCase": 1,
+        "VariableDeclarator": 1,
+        "outerIIFEBody": 1
+      }
+    ],
+    "@typescript-eslint/comma-dangle": [
+      "error",
+      "never"
+    ]
+  },
+  "overrides": [
+    {
+      "files": [
+        "*.json",
+        "*.json5",
+        "*.jsonc"
+      ],
+      "parser": "jsonc-eslint-parser"
+    },
+    {
+      "files": [
+        "package.json"
+      ],
+      "parser": "jsonc-eslint-parser",
+      "rules": {
+        "jsonc/sort-keys": [
+          "error",
+          {
+            "pathPattern": "^$",
+            "order": [
+              "name",
+              "type",
+              "version",
+              "private",
+              "packageManager",
+              "description",
+              "keywords",
+              "license",
+              "author",
+              "repository",
+              "funding",
+              "main",
+              "module",
+              "types",
+              "unpkg",
+              "jsdelivr",
+              "exports",
+              "files",
+              "bin",
+              "sideEffects",
+              "scripts",
+              "peerDependencies",
+              "peerDependenciesMeta",
+              "dependencies",
+              "optionalDependencies",
+              "devDependencies",
+              "husky",
+              "lint-staged",
+              "eslintConfig"
+            ]
+          },
+          {
+            "pathPattern": "^(?:dev|peer|optional|bundled)?[Dd]ependencies$",
+            "order": {
+              "type": "asc"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "**/*.config.*"
+      ],
+      "rules": {
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": true
+          }
+        ]
+      }
+    },
+    {
+      "files": [
+        "src/**/*.ts",
+        "src/**/*.js"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "env": {
+        "browser": true,
+        "node": false
+      }
+    },
+    {
+      "files": [
+        "*.svelte"
+      ],
+      "parser": "svelte-eslint-parser",
+      "parserOptions": {
+        "parser": "@typescript-eslint/parser"
+      },
+      "env": {
+        "browser": true,
+        "node": false
+      },
+
+      "rules": {
+        "no-inner-declarations": "off",
+        "no-unused-vars": "off",
+        "no-self-assign": "off",
+        "import/first": "off",
+        "import/extensions": ["error", "never"],
+        "import/no_duplicates": "off",
+        "import/no-mutable-exports": "off",
+        "import/prefer-default-export": "off",
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": true
+          }
+        ]
+      }
+    }
+  ]
+}

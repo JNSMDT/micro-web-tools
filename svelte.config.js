@@ -1,7 +1,7 @@
 import adapter from '@sveltejs/adapter-cloudflare';
 import preprocess from 'svelte-preprocess';
 import analyze from 'rollup-plugin-analyzer';
-import { resolve } from 'path';
+import { resolve } from 'node:path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
